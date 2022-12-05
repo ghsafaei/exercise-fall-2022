@@ -1,0 +1,68 @@
+#! /usr/bin/gnuplot
+
+set terminal postscript eps color enhanced  size  9in,  5in
+set output "N-t-GOCs.eps"
+
+set tmargin 1
+set rmargin 1
+set lmargin 20
+set bmargin 11
+set border linewidth 4
+ 
+set tics font "Times New Roman-Bold, 50" 
+set xtics font "Times New Roman-Bold, 50" offset 0,-1,0 
+set ytics font "Times New Roman-Bold, 50" offset -2,0,0 
+set ticscale 3
+ 
+ unset key 
+set key font "Times New Roman,42"  at 5.9,12600
+#set key bottom center             
+#set key spacing 7
+
+set xrange [-2:6]  
+set yrange [0:13000]
+
+set xtics 1
+set mxtics 5
+
+set ytics ("0"0,""1000,"2"2000,""3000,"4"4000,""5000,"6"6000,""7000,"8"8000,""9000,"10"10000,""11000,"12"12000,""13000)
+set xlabel  'log_{10} t [Myr]' font "Times New Roman-Bold,70" offset 0,-5,0 
+set ylabel "N [ { \264} 10^3 ]"  font "Times New Roman-Bold,70"  offset -10,0,0 #rotate by 0
+
+p   '14-A-OPH-N10k-rh045-rg8o5kpc-v220-A.new'        u (log10($1)):3    w l     lc 1      lw  8     t 'A'       ,\
+    'time-N4-N308-N305-N3o37-N3-N2o6-N2-rmax-A.txt'  u (log10($1)):2:8  with filledcurves     lc 1        t ''       ,\
+    '19-B-OPH-N10k-rh02-rg8o5kpc-v220-B.new'         u (log10($1)):3    w l     lc 2      lw  8     t 'B'       ,\
+    'time-N4-N308-N305-N3o37-N3-N2o6-N2-rmax-B.txt'  u (log10($1)):2:8  with filledcurves     lc 2        t ''       ,\
+	'2-C-OPH-N10k-rh045-rg8o5kpc-v220-A-w7.new'      u (log10($1)):3    w l     lc 3      lw  8     t 'C'       ,\
+    'time-N4-N308-N305-N3o37-N3-N2o6-N2-rmax-C.txt'  u (log10($1)):2:8  with filledcurves     lc 3        t ''       ,\
+	'32-D-OPH-N10k-rhMK-rg8o5kpc-v220.new'           u (log10($1)):3    w l     lc 4      lw  8     t 'D'       ,\
+    'time-N4-N308-N305-N3o37-N3-N2o6-N2-rmax-D.txt'  u (log10($1)):2:8  with filledcurves     lc 4        t ''       ,\
+	'33-E-OPH-N10k-rhMK-rg8o5kpc-v220.new'           u (log10($1)):3    w l     lc 5      lw  8     t 'E'       ,\
+    'time-N4-N308-N305-N3o37-N3-N2o6-N2-rmax-E.txt'  u (log10($1)):2:8  with filledcurves     lc 5        t ''       ,\
+	'41-F-OPH-N4o3k-rhMK-rg8o5kpc-v220.new'          u (log10($1)):3    w l     lc 7      lw  8     t 'F'       ,\
+    'time-N4-N308-N305-N3o37-N3-N2o6-N2-rmax-F.txt'  u (log10($1)):2:8  with filledcurves     lc 7        t ''       ,\
+	'57-G-OPH-N4o2k-rhMK-rg8o5kpc-v220.new'          u (log10($1)):3    w l     lc 8      lw  8     t 'G'       ,\
+    'time-N4-N308-N305-N3o37-N3-N2o6-N2-rmax-G.txt'  u (log10($1)):2:8  with filledcurves     lc 8        t ''       ,\
+    '1GOC_N.txt'                            u (log10($1)):2:3:4 with xyerrorbars  pt 3  ps 6  lc 1      lw  8              t  '1'   ,\
+    '2GOC_N.txt'                            u (log10($1)):2:3:4 with xyerrorbars  pt 3  ps 6  lc 2      lw  8              t  '2'   ,\
+    '3GOC_N.txt'                            u (log10($1)):2:3:4 with xyerrorbars  pt 4  ps 6  lc 8      lw  8              t  '3'   ,\
+    '4GOC_N.txt'                            u (log10($1)):2:3:4 with xyerrorbars  pt 3  ps 6  lc 4      lw  8              t  '4'   ,\
+    '5GOC_N.txt'                            u (log10($1)):2:3:4 with xyerrorbars  pt 8  ps 6  lc 8      lw  8              t  '5'   ,\
+    '6GOC_N.txt'                            u (log10($1)):2:3:4 with xyerrorbars  pt 3  ps 6  lc 6      lw  8              t  '6'   ,\
+    '7GOC_N.txt'                            u (log10($1)):2:3:4 with xyerrorbars  pt 3  ps 6  lc 7      lw  8              t  '7'   ,\
+    '8GOC_N.txt'                            u (log10($1)):2:3:4 with xyerrorbars  pt 4  ps 6  lc 7      lw  8              t  '8'   ,\
+    '9GOC_N.txt'                            u (log10($1)):2:3:4 with xyerrorbars  pt 5  ps 6  lc 7      lw  8              t  '9'   ,\
+    '10GOC_N.txt'                           u (log10($1)):2:3:4 with xyerrorbars  pt 6  ps 6  lc 7      lw  8              t  '10'   ,\
+    '11GOC_N.txt'                           u (log10($1)):2:3:4 with xyerrorbars  pt 7  ps 6  lc 8      lw  8              t  '11'   ,\
+    '12GOC_N.txt'                           u (log10($1)):2:3:4 with xyerrorbars  pt 8  ps 6  lc 1      lw  8              t  '12'   ,\
+    '13GOC_N.txt'                           u (log10($1)):2:3:4 with xyerrorbars  pt 9  ps 6  lc 8      lw  8              t  '13'   ,\
+    '14GOC_N.txt'                           u (log10($1)):2:3:4 with xyerrorbars  pt 4  ps 6  lc 1      lw  8              t  '14'   ,\
+    '15GOC_N.txt'                           u (log10($1)):2:3:4 with xyerrorbars  pt 9  ps 6  lc 7      lw  8              t  '15'
+
+q
+
+
+
+
+
+
